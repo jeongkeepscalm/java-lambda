@@ -4,7 +4,7 @@ import lambda.Procedure;
 
 import java.util.Random;
 
-public class ExRefMainV1 {
+public class ExRefMainV4 {
 
     public static void hello(Procedure procedure) {
         long startNs = System.nanoTime();
@@ -13,26 +13,18 @@ public class ExRefMainV1 {
         System.out.println("실행 시간: " + (endNs - startNs) + "ns");
     }
 
-    static class A implements Procedure {
-        @Override
-        public void run() {
+    public static void main(String[] args) {
+
+        hello(() -> {
             int randomValue = new Random().nextInt(6) + 1;
             System.out.println("dice = " + randomValue);
-        }
-    }
-    static class B implements Procedure {
-        @Override
-        public void run() {
+        });
+
+        hello(() -> {
             for (int i = 1; i <= 3; i++) {
                 System.out.println(i);
             }
-        }
-    }
+        });
 
-    public static void main(String[] args) {
-        Procedure a = new A();
-        Procedure b = new B();
-        hello(a);
-        hello(b);
     }
 }

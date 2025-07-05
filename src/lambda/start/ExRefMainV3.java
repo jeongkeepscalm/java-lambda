@@ -6,30 +6,32 @@ import java.util.Random;
 
 public class ExRefMainV3 {
 
-    public static void Hello(Procedure procedure) {
+    public static void hello(Procedure procedure) {
         long startNs = System.nanoTime();
         procedure.run();
         long endNs = System.nanoTime();
         System.out.println("실행 시간: " + (endNs - startNs) + "ns");
     }
-    
+
     public static void main(String[] args) {
-        Procedure dice = new Procedure() {
+
+        hello(new Procedure() {
             @Override
             public void run() {
                 int randomValue = new Random().nextInt(6) + 1;
                 System.out.println("dice = " + randomValue);
             }
-        };
-        Procedure sum = new Procedure() {
+        });
+
+        hello(new Procedure() {
             @Override
             public void run() {
                 for (int i = 1; i <= 3; i++) {
                     System.out.println(i);
                 }
             }
-        };
-        Hello(dice);
-        Hello(sum);
+        });
+
+
     }
 }

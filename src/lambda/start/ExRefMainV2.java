@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ExRefMainV2 {
 
-    public static void Hello(Procedure procedure) {
+    public static void hello(Procedure procedure) {
         long startNs = System.nanoTime();
         procedure.run();
         long endNs = System.nanoTime();
@@ -29,7 +29,7 @@ public class ExRefMainV2 {
                 }
             }
         };
-        Hello(dice);
-        Hello(sum);
+        hello(dice);
+        hello(sum);
     }
 }
