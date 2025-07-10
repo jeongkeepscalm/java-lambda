@@ -35,6 +35,6 @@ public class FilterExample {
 
     }
 
-    // p.70
+
 
 }
